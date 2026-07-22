@@ -241,5 +241,4 @@ php artisan optimize:clear
 - Blade
 - Bootstrap 5
 - Spatie Laravel Permission
-- Vite
 - Custom Authentication
