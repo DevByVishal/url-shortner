@@ -5,7 +5,6 @@
 - PHP 8.2 or higher
 - Composer
 - MySQL
-- Node.js and npm
 - Git
 
 ## 1. Clone the Project
