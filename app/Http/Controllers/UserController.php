@@ -12,14 +12,20 @@ class UserController extends Controller
     $user = auth()->user();
 
     if ($user->hasRole('SuperAdmin')) {
-        // SuperAdmin can see all users
-        $users = User::with('company')->latest()->get();
+
+        // SuperAdmin can see all users from all companies
+        $users = User::with('company')
+            ->latest()
+            ->paginate(10);
+
     } elseif ($user->hasRole('Admin')) {
-        // Admin can see users from their own company
+
+        // Admin can see users from their own company only
         $users = User::with('company')
             ->where('company_id', $user->company_id)
             ->latest()
-            ->get();
+            ->paginate(10);
+
     } else {
         abort(403);
     }
