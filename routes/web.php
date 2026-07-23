@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/short-urls/{shortUrl}', [ShortUrlController::class, 'show'])
     ->name('short-urls.show');
 
-    Route::middleware(['role:Admin'])->group(function () {
+    Route::middleware(['role:SuperAdmin|Admin'])->group(function () {
         // User List
         Route::get('/team-members', [UserController::class, 'index'])->name('users.index');
     });
